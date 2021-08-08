@@ -84,6 +84,12 @@ class MockUser with EquatableMixin implements User {
   }
 
   @override
+  Future<void> delete() {
+    // Do nothing.
+    return Future.value();
+  }
+
+  @override
   Future<UserCredential> reauthenticateWithCredential(
     AuthCredential credential,
   ) {
