@@ -98,6 +98,22 @@ void main() {
     // Does not throw an exception.
     await user!.reload();
   });
+
+  test('User.delete returns', () async {
+    final auth = MockFirebaseAuth(signedIn: true);
+    final user = auth.currentUser;
+    expect(user, isNotNull);
+    // Does not throw an exception.
+    await user!.delete();
+  });
+
+  test('User.reauthenticateWithCredential returns', () async {
+    final auth = MockFirebaseAuth(signedIn: true);
+    final user = auth.currentUser;
+    expect(user, isNotNull);
+    // Does not throw an exception.
+    await user!.reauthenticateWithCredential(FakeAuthCredential());
+  });
 }
 
 class FakeAuthCredential implements AuthCredential {
